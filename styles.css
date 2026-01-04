@@ -23,33 +23,29 @@ body {
    Navigation Bar
    ========================= */
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #eee;
-}
-
 .logo {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.navbar nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 
-.navbar nav a:hover {
-  color: #4CAF50;
+.nav-center {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 
 /* =========================
    Buttons
@@ -272,4 +268,10 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.location-address {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
 
