@@ -118,14 +118,16 @@ body {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  /* Desktop: 6 cards per row */
+  grid-template-columns: repeat(6, 1fr);
 }
+
 
 .service-card {
   position: relative;
-  height: 260px;
+  height: 280px;
   border-radius: 12px;
   overflow: hidden;
   background: #ccc; /* placeholder for images */
@@ -140,7 +142,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .service-card:hover {
@@ -156,15 +158,17 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .overlay h3 {
   font-size: 1.4rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
-.meta {
+.overlay .meta {
   font-size: 0.9rem;
   opacity: 0.9;
 }
@@ -254,3 +258,18 @@ footer {
     height: 220px;
   }
 }
+
+/* Tablets / Small laptops → 3 per row */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile → 1 per row */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
