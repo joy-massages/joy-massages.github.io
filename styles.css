@@ -28,23 +28,61 @@ body {
   font-weight: bold;
 }
 
-.navbar {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 1rem 2rem;
+/* NAVBAR LINKS – CLEAN & ELEGANT */
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-.nav-center {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+/* Center nav links spacing */
+.nav-center a {
+  letter-spacing: 0.4px;
 }
 
-.nav-right {
-  display: flex;
-  justify-content: flex-end;
+/* Hover effect */
+.navbar a:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
 }
+
+.navbar .btn {
+  background: #4CAF50;
+  color: #fff !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.navbar .btn:hover {
+  background: #43a047;
+}
+
+.nav-center a {
+  position: relative;
+}
+
+.nav-center a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  background: #4CAF50;
+  transition: width 0.2s ease, left 0.2s ease;
+}
+
+.nav-center a:hover::after {
+  width: 60%;
+  left: 20%;
+}
+
 
 
 /* =========================
