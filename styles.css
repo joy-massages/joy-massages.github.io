@@ -33,6 +33,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  
 }
 
 /* Logo */
@@ -55,7 +56,7 @@ body {
 .navbar a {
   text-decoration: none;
   color: #333;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1rem;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
@@ -112,10 +113,10 @@ body {
   color: #fff; /* Text color over the logo */
   padding: 6rem 2rem;
   background-color: #4CAF50; /* fallback color */
-  background-image: url('images/logo.jpeg'); /* your logo */
+  background-image: url('images/logo.png');
   background-repeat: no-repeat;
-  background-position: center center; /* center the logo */
-  background-size: 200px auto; /* adjust size as needed */
+  background-position: center center;
+  background-size: contain; /* keeps aspect ratio */
   display: flex;
   flex-direction: column;
   justify-content: center;
