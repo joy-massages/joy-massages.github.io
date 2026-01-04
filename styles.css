@@ -90,3 +90,62 @@ footer {
   background: #222;
   color: white;
 }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  position: relative;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ccc; /* placeholder until images added */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.overlay h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.meta {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.6rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Optional hover effect */
+.service-card:hover::before {
+  background: rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease;
+}
+
