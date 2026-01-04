@@ -1,14 +1,27 @@
+/* =========================
+   Global Reset & Base Styles
+   ========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  line-height: 1.6;
+  font-family: "Arial", sans-serif;
   color: #333;
+  line-height: 1.6;
+  background-color: #ffffff;
 }
+
+/* =========================
+   Navigation Bar
+   ========================= */
 
 .navbar {
   display: flex;
@@ -18,18 +31,47 @@ body {
   background: #ffffff;
   position: sticky;
   top: 0;
-}
-
-.navbar a {
-  margin-left: 1rem;
-  text-decoration: none;
-  color: #333;
+  z-index: 100;
+  border-bottom: 1px solid #eee;
 }
 
 .logo {
-  font-weight: bold;
   font-size: 1.2rem;
+  font-weight: bold;
 }
+
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar nav a:hover {
+  color: #4CAF50;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+.btn {
+  display: inline-block;
+  background: #4CAF50;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: #43a047;
+}
+
+/* =========================
+   Hero Section
+   ========================= */
 
 .hero {
   height: 80vh;
@@ -43,9 +85,18 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   margin-bottom: 1rem;
 }
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+/* =========================
+   Section Layout
+   ========================= */
 
 .section {
   padding: 4rem 2rem;
@@ -56,59 +107,35 @@ body {
   background: #f7f7f7;
 }
 
-.cards {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-top: 2rem;
-  flex-wrap: wrap;
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
-.card {
-  background: white;
-  padding: 2rem;
-  width: 200px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.btn {
-  background: #4CAF50;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-}
-
-.btn-large {
-  margin-top: 1.5rem;
-  font-size: 1.1rem;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: white;
-}
+/* =========================
+   Services Grid (Summary Cards)
+   ========================= */
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .service-card {
   position: relative;
-  height: 320px;
+  height: 260px;
   border-radius: 12px;
   overflow: hidden;
-  background: #ccc; /* placeholder until images added */
+  background: #ccc; /* placeholder for images */
   background-size: cover;
   background-position: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Dark overlay */
 .service-card::before {
   content: "";
   position: absolute;
@@ -116,12 +143,17 @@ footer {
   background: rgba(0, 0, 0, 0.55);
 }
 
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .overlay {
   position: relative;
   z-index: 2;
   height: 100%;
   padding: 1.5rem;
-  color: white;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -135,46 +167,90 @@ footer {
 .meta {
   font-size: 0.9rem;
   opacity: 0.9;
-  margin-bottom: 0.6rem;
 }
 
-/* Optional hover effect */
-.service-card:hover::before {
-  background: rgba(0, 0, 0, 0.4);
-  transition: background 0.3s ease;
+/* =========================
+   Service Detail Sections
+   ========================= */
+
+#service-details {
+  text-align: center;
 }
 
-.description.full {
-  display: none;
-  margin-top: 0.8rem;
+.service-detail {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: left;
+}
+
+.service-detail h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.service-detail .meta {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.service-detail p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Optional back link */
+.service-detail .back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  text-decoration: none;
   font-size: 0.9rem;
-  line-height: 1.5;
+  color: #4CAF50;
 }
 
-.description.short {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin-bottom: 0.6rem;
+/* =========================
+   About Section
+   ========================= */
+
+#about {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Expanded state */
-.service-card.expanded .description.full {
-  display: block;
+#about p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
-.service-card.expanded .description.short {
-  display: none;
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.9rem;
 }
 
-.read-more {
-  margin-top: 0.8rem;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.6);
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
+/* =========================
+   Responsive Tweaks
+   ========================= */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .navbar nav a {
+    margin-left: 1rem;
+  }
+
+  .service-card {
+    height: 220px;
+  }
 }
-
-
