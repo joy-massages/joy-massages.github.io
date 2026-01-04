@@ -138,14 +138,43 @@ footer {
   margin-bottom: 0.6rem;
 }
 
-.description {
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
 /* Optional hover effect */
 .service-card:hover::before {
   background: rgba(0, 0, 0, 0.4);
   transition: background 0.3s ease;
 }
+
+.description.full {
+  display: none;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.description.short {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+
+/* Expanded state */
+.service-card.expanded .description.full {
+  display: block;
+}
+
+.service-card.expanded .description.short {
+  display: none;
+}
+
+.read-more {
+  margin-top: 0.8rem;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
 
