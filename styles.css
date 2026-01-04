@@ -28,12 +28,11 @@ body {
   justify-content: space-between; /* logo left, nav links center or right */
   align-items: center;
   padding: 1rem 2rem;
-  background: #fff; /* or semi-transparent if desired */
+  background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  
 }
 
 /* Logo */
@@ -47,16 +46,16 @@ body {
 .navbar nav {
   display: flex;
   gap: 1.2rem; /* space between links */
-  justify-content: center; /* center links horizontally */
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-/* Links style – keep your current styles */
+/* Links style */
 .navbar a {
   text-decoration: none;
   color: #333;
-  font-weight: 700;
+  font-weight: 700; /* bolder for Cyrillic */
   font-size: 1rem;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
@@ -81,9 +80,6 @@ body {
 .navbar .btn:hover {
   background: #43a047;
 }
-
-
-
 
 /* =========================
    Buttons
@@ -110,38 +106,22 @@ body {
 .hero {
   position: relative;
   text-align: center;
-  color: #fff; /* Text color over the logo */
+  color: #fff;
   padding: 6rem 2rem;
-  background-color: #4CAF50; /* fallback color */
-  background-image: url('images/logo.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain; /* keeps aspect ratio */
+  background: linear-gradient(135deg, #4CAF50, #81C784); /* colorful gradient */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* Optional: add a semi-transparent overlay if the logo makes text hard to read */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* dark overlay, tweak opacity */
-  z-index: 0;
-}
-
+/* Hero overlay removed since gradient is colorful */
 .hero h1,
 .hero p,
 .hero .btn-large {
   position: relative;
-  z-index: 1; /* keep text above logo */
+  z-index: 1; /* keep text above background */
 }
-
 
 /* =========================
    Section Layout
@@ -169,10 +149,8 @@ body {
   display: grid;
   gap: 1.5rem;
   margin-top: 2rem;
-  /* Desktop: 6 cards per row */
   grid-template-columns: repeat(6, 1fr);
 }
-
 
 .service-card {
   position: relative;
@@ -251,7 +229,6 @@ body {
   line-height: 1.7;
 }
 
-/* Optional back link */
 .service-detail .back-link {
   display: inline-block;
   margin-top: 1.5rem;
@@ -275,6 +252,31 @@ body {
 }
 
 /* =========================
+   Location Section
+   ========================= */
+
+#location {
+  padding: 4rem 2rem;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.location-address {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.location-map a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.location-map a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
    Footer
    ========================= */
 
@@ -289,6 +291,12 @@ footer {
 /* =========================
    Responsive Tweaks
    ========================= */
+
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 @media (max-width: 768px) {
   .hero h1 {
@@ -308,23 +316,8 @@ footer {
   }
 }
 
-/* Tablets / Small laptops → 3 per row */
-@media (max-width: 1200px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Mobile → 1 per row */
 @media (max-width: 600px) {
   .services-grid {
     grid-template-columns: 1fr;
   }
 }
-
-.location-address {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
-
