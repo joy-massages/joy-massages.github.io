@@ -108,25 +108,40 @@ body {
    ========================= */
 
 .hero {
-  height: 80vh;
-  background: linear-gradient(to right, #a8edea, #fed6e3);
+  position: relative;
+  text-align: center;
+  color: #fff; /* Text color over the logo */
+  padding: 6rem 2rem;
+  background-color: #4CAF50; /* fallback color */
+  background-image: url('images/logo.jpeg'); /* your logo */
+  background-repeat: no-repeat;
+  background-position: center center; /* center the logo */
+  background-size: 200px auto; /* adjust size as needed */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 2rem;
 }
 
-.hero h1 {
-  font-size: 2.6rem;
-  margin-bottom: 1rem;
+/* Optional: add a semi-transparent overlay if the logo makes text hard to read */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* dark overlay, tweak opacity */
+  z-index: 0;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
+.hero h1,
+.hero p,
+.hero .btn-large {
+  position: relative;
+  z-index: 1; /* keep text above logo */
 }
+
 
 /* =========================
    Section Layout
