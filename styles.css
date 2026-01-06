@@ -329,3 +329,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.classic-massage {
+  background-image: url("./images/classic-massage.jpeg");
+}
