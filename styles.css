@@ -204,7 +204,8 @@ body {
 }
 
 .overlay .meta {
-  font-size: 0.9rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   opacity: 0.9;
 }
 
