@@ -23,7 +23,7 @@ body {
    Fix anchor scroll for sticky navbar
    ========================= */
 section[id], #service-details {
-  scroll-margin-top: 80px; /* adjust to match your navbar height */
+  scroll-margin-top: 160px; /* adjust to match your navbar height */
 }
 
 
