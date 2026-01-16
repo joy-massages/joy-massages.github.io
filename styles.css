@@ -6,8 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap&subset=cyrillic');
 
 :root{
-  --font-sans: 'Montserrat', Arial, sans-serif;
-  --font-heading: 'Montserrat', system-ui, sans-serif;
+  /* Broad fallback stack: preferred Cyrillic-capable webfont, then common UI fonts */
+  --font-sans: 'Montserrat', 'Inter', 'Roboto', 'Noto Sans', Arial, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-heading: 'Montserrat', 'Rubik', system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --base-size: 16px;
   --color-text: #333;
   --color-accent: #4CAF50;
@@ -44,6 +45,14 @@ h1,h2,h3,h4,h5,h6{
    ========================= */
 :target {
   scroll-margin-top: 140px; /* match navbar height */
+}
+/* Responsive adjustments for anchor offsets (smaller headers) */
+@media (max-width: 768px) {
+  :target { scroll-margin-top: 110px; }
+}
+
+@media (max-width: 480px) {
+  :target { scroll-margin-top: 88px; }
 }
 
 
@@ -145,12 +154,13 @@ h1,h2,h3,h4,h5,h6{
 
 /* Hero Logo */
 .hero-logo {
-    height: 600px;
-    width: max-content;
-    max-width: 90vw;
-    margin-bottom: 1.5rem;
-    display: block;
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+  display: block;
+  width: auto;
+  max-width: 90vw;
+  height: auto;
+  max-height: 600px; /* prevents extremely tall logos */
+  margin-bottom: 1.2rem;
+  object-fit: contain;
 }
 
 /* Hero overlay removed since gradient is colorful */
@@ -390,17 +400,46 @@ footer {
     font-size: 1rem;
   }
 
+  /* Make header more compact on mobile */
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+
   .navbar nav a {
-    margin-left: 1rem;
+    margin-left: 0.6rem;
+    font-size: 0.95rem;
+    padding: 0.32rem 0.6rem;
+  }
+
+  .navbar .btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.95rem;
+    border-radius: 16px;
   }
 
   .service-card {
-    height: 220px;
+    height: 200px;
+  }
+
+  /* Reduce hero height/padding on small screens */
+  .hero {
+    padding: 3.2rem 1.2rem;
   }
 
   .hero-logo {
     max-width: 300px;
-    margin-bottom: 1.2rem;
+    max-height: 320px;
+    margin-bottom: 1rem;
+  }
+
+  /* Tighter service-detail spacing on mobile */
+  .service-detail {
+    padding: 1rem;
+    margin: 0.8rem 0.8rem 1.2rem;
   }
 }
 
