@@ -114,9 +114,9 @@ body {
 .hero {
   position: relative;
   text-align: center;
-  color: #fff;
+  color: black;
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #4CAF50, #81C784); /* colorful gradient */
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -125,15 +125,13 @@ body {
 
 /* Hero Logo */
 .hero-logo {
-  height: 400px;       /* controls visual size */
-  width: max-content;         /* preserves aspect ratio */
-  max-width: 90vw;     /* safety for small screens */
-  margin-bottom: 1.5rem;
-  display: block;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
-
+    height: 600px;
+    width: max-content;
+    max-width: 90vw;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
 }
-
 
 /* Hero overlay removed since gradient is colorful */
 .hero h1,
@@ -364,8 +362,9 @@ footer {
   }
 
   .hero-logo {
-    height: 150px;
+    max-width: 300px;
     margin-bottom: 1.2rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -427,4 +426,11 @@ footer {
 .king-massage {
   background-image: url("./images/king-massage.jpeg");
 }
+
+
+
+
+
+
+
 
