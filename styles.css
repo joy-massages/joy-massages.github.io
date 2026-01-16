@@ -123,6 +123,15 @@ body {
   align-items: center;
 }
 
+/* Hero Logo */
+.hero-logo {
+  max-width: 420px;          /* ideal desktop size */
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
 /* Hero overlay removed since gradient is colorful */
 .hero h1,
 .hero p,
@@ -350,11 +359,22 @@ footer {
   .service-card {
     height: 220px;
   }
+
+  .hero-logo {
+    max-width: 300px;
+    margin-bottom: 1.2rem;
+  }
 }
 
 @media (max-width: 600px) {
   .services-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    max-width: 240px;
   }
 }
 
