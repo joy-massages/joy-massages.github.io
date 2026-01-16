@@ -323,18 +323,25 @@
 <script>
   let lastScrollTop = 0;
   const navbar = document.querySelector('.navbar');
+  console.log('Navbar found:', navbar);
+  console.log('Window width:', window.innerWidth);
 
   window.addEventListener('scroll', function() {
-    if (window.innerWidth > 768) return; // Only on mobile
+    console.log('Scroll event fired, width:', window.innerWidth);
+    if (window.innerWidth > 768) {
+      console.log('Skipping, width > 768');
+      return;
+    }
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    console.log('ScrollTop:', scrollTop, 'LastScrollTop:', lastScrollTop);
     if (scrollTop > lastScrollTop && scrollTop > 50) {
-      // Scrolling down and past 50px
+      console.log('Adding shrunk class');
       navbar.classList.add('navbar--shrunk');
     } else if (scrollTop < lastScrollTop) {
-      // Scrolling up
+      console.log('Removing shrunk class');
       navbar.classList.remove('navbar--shrunk');
     }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, false);
 </script>
 
