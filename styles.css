@@ -125,12 +125,15 @@ body {
 
 /* Hero Logo */
 .hero-logo {
-  max-width: 420px;          /* ideal desktop size */
-  width: 100%;
-  height: auto;
+  height: 200px;       /* controls visual size */
+  width: auto;         /* preserves aspect ratio */
+  max-width: 90vw;     /* safety for small screens */
   margin-bottom: 1.5rem;
   display: block;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+
 }
+
 
 /* Hero overlay removed since gradient is colorful */
 .hero h1,
@@ -361,9 +364,8 @@ footer {
   }
 
   .hero-logo {
-    max-width: 300px;
+    height: 150px;
     margin-bottom: 1.2rem;
-  }
 }
 
 @media (max-width: 600px) {
