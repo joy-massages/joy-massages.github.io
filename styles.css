@@ -228,33 +228,18 @@ body {
 }
 
 .service-detail {
-  max-width: 800px;
-  margin: 0 auto 4rem;
-  text-align: left;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 2.5rem 2.8rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+
+  /* Added enhancements */
+  border-left: 4px solid rgba(76, 175, 80, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.service-detail h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.4rem;
-}
-
-.service-detail .meta {
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-.service-detail p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.service-detail .back-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  font-size: 0.9rem;
-  color: #4CAF50;
-}
 
 /* =========================
    About Section
