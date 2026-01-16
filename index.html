@@ -320,6 +320,24 @@
   <p>© 2026 Joy Massages</p>
 </footer>
 
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', function() {
+    if (window.innerWidth > 768) return; // Only on mobile
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && scrollTop > 50) {
+      // Scrolling down and past 50px
+      navbar.classList.add('navbar--shrunk');
+    } else if (scrollTop < lastScrollTop) {
+      // Scrolling up
+      navbar.classList.remove('navbar--shrunk');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  }, false);
+</script>
+
 </body>
 </html>
 
