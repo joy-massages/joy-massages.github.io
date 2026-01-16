@@ -2,6 +2,17 @@
    Global Reset & Base Styles
    ========================= */
 
+/* Load Montserrat (Cyrillic subset) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap&subset=cyrillic');
+
+:root{
+  --font-sans: 'Montserrat', Arial, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+  --base-size: 16px;
+  --color-text: #333;
+  --color-accent: #4CAF50;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,10 +24,19 @@ html {
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  color: #333;
+  font-family: var(--font-sans);
+  font-size: 1rem; /* = var(--base-size) */
+  color: var(--color-text);
   line-height: 1.6;
   background-color: #ffffff;
+}
+
+/* Headings use Montserrat for crisp Cyrillic display */
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #222;
 }
 
 /* =========================
