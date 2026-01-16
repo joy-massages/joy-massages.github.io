@@ -125,8 +125,8 @@ body {
 
 /* Hero Logo */
 .hero-logo {
-  height: 200px;       /* controls visual size */
-  width: auto;         /* preserves aspect ratio */
+  height: 400px;       /* controls visual size */
+  width: max-content;         /* preserves aspect ratio */
   max-width: 90vw;     /* safety for small screens */
   margin-bottom: 1.5rem;
   display: block;
