@@ -12,6 +12,8 @@
   --base-size: 16px;
   --color-text: #333;
   --color-accent: #4CAF50;
+  /* Green to white gradient */
+  --gradient-green-white: linear-gradient(90deg, #4CAF50 0%, #ffffff 100%);
 }
 
 * {
@@ -116,6 +118,38 @@ h1,h2,h3,h4,h5,h6{
 
 .navbar .btn:hover {
   background: #43a047;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #333;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* =========================
@@ -241,6 +275,7 @@ h1,h2,h3,h4,h5,h6{
 .overlay h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: white
 }
 
 .overlay .meta {
@@ -261,7 +296,7 @@ h1,h2,h3,h4,h5,h6{
   max-width: 1100px;
   margin: 1.5rem auto 3rem;
   padding: 2.5rem 2.8rem;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfffc 100%);
+  background: linear-gradient(270deg, #ffffff 0%, #fbfffcec 100%);
   border-radius: 18px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
   transform: translateY(0);
@@ -302,6 +337,21 @@ h1,h2,h3,h4,h5,h6{
   outline-offset: 6px;
 }
 
+/* Improve readability for service detail body text */
+.service-detail p {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #222;
+}
+
+@media (max-width: 480px) {
+  .service-detail p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
 
 /* =========================
    About Section
@@ -310,6 +360,9 @@ h1,h2,h3,h4,h5,h6{
 #about {
   max-width: 800px;
   margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 #about p {
@@ -402,11 +455,11 @@ footer {
 
   /* Make header more compact on mobile */
   .navbar {
-    padding: 0.6rem 1rem;
+    padding: 0.4rem 0.6rem;
   }
 
   .logo {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
   .navbar nav a {
@@ -440,6 +493,34 @@ footer {
   .service-detail {
     padding: 1rem;
     margin: 0.8rem 0.8rem 1.2rem;
+  }
+
+  /* Hamburger menu for mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-center,
+  .nav-right {
+    display: none;
+  }
+
+  .nav-center.active,
+  .nav-right.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--gradient-green-white);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .nav-center.active a,
+  .nav-right.active a {
+    margin: 0.5rem 0;
   }
 }
 

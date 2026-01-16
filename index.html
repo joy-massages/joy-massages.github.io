@@ -28,6 +28,13 @@
 <header class="navbar">
   <div class="logo">Joy Massages</div>
 
+  <!-- Hamburger menu button for mobile -->
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <nav class="nav-center">
     <a href="#about">За мен</a>
     <a href="#services">Услуги</a>
@@ -315,6 +322,22 @@
 <footer>
   <p>© 2026 Joy Massages</p>
 </footer>
+
+<script>
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navCenter = document.querySelector('.nav-center');
+  const navRight = document.querySelector('.nav-right');
+
+  hamburger.addEventListener('click', () => {
+    navCenter.classList.toggle('active');
+    navRight.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
 
 </body>
 
