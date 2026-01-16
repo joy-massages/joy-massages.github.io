@@ -50,11 +50,11 @@ h1,h2,h3,h4,h5,h6{
 }
 /* Responsive adjustments for anchor offsets (smaller headers) */
 @media (max-width: 768px) {
-  :target { scroll-margin-top: 110px; }
+  :target { scroll-margin-top: 60px; }
 }
 
 @media (max-width: 480px) {
-  :target { scroll-margin-top: 88px; }
+  :target { scroll-margin-top: 44px; }
 }
 
 
