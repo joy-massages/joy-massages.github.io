@@ -434,7 +434,7 @@ h1,h2,h3,h4,h5,h6{
 
 .location-gallery img {
   width: 100%;
-  height: 220px;
+  height: 300px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
@@ -463,7 +463,7 @@ footer {
   }
 
   .location-gallery img {
-    height: 200px;
+    height: 250px;
   }
 
   .location-content {
