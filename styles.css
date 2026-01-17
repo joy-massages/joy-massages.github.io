@@ -268,18 +268,27 @@ h1,h2,h3,h4,h5,h6{
 
 #service-details {
   text-align: center;
+  background-image: url('./images/classic-back.jpeg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .service-detail {
   max-width: 1100px;
-  margin: 1.5rem auto 3rem;
+  margin: 1.5rem auto 5rem;
   padding: 2.5rem 2.8rem;
-  background: linear-gradient(270deg, #ffffff 0%, #fbfffcec 100%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 18px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
   transform: translateY(0);
   border-left: 6px solid rgba(76, 175, 80, 0.6);
   transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .service-detail:hover,
@@ -299,9 +308,13 @@ h1,h2,h3,h4,h5,h6{
 }
 
 @media (max-width: 768px) {
+  #service-details {
+    background-attachment: scroll;
+  }
+  
   .service-detail {
     padding: 1.2rem;
-    margin: 0.9rem 0.9rem 1.6rem;
+    margin: 0.9rem 0.9rem 2.5rem;
     border-left: none;
     border-top: 6px solid rgba(76, 175, 80, 0.6);
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
