@@ -201,6 +201,31 @@ h1,h2,h3,h4,h5,h6{
   margin-bottom: 2rem;
 }
 
+/* About Section */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-image {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: left;
+  flex-shrink: 0;
+}
+
+/* Service Details Section */
+#service-details h2 {
+  color: #ffffff;
+}
+
 /* =========================
    Services Grid (Summary Cards)
    ========================= */
@@ -220,9 +245,12 @@ h1,h2,h3,h4,h5,h6{
   background: #ccc; /* placeholder for images */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .service-card::before {
@@ -268,7 +296,7 @@ h1,h2,h3,h4,h5,h6{
 
 #service-details {
   text-align: center;
-  background-image: url('./images/classic-back.jpeg');
+  background-image: url('./images/background-service-details.jpeg');
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -648,7 +676,74 @@ footer {
 
 
 
+/* =========================
+   Responsive Design
+   ========================= */
 
+@media (max-width: 768px) {
+  /* About Section */
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .about-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .about-content p {
+    font-size: 1.2rem;
+  }
+
+  /* Service Details Section */
+  #service-details {
+    background-image: url("./images/background_scaled_down.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  /* Sections */
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .service-card {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    width: 250px;
+    height: 250px;
+  }
+}
 
 
 
