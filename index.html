@@ -21,6 +21,7 @@
 
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="http://www.joymassage.org/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -46,6 +47,9 @@
     alt="Joy Massage Studio"
     class="hero-logo"
   />
+  <div id="promo-banner" class="promo-banner" style="display: none;">
+    <p> Февруари е месецът на специалните предложения- открийте нашите промоции с намаление до -33% </p>
+  </div>
   <h1>Релакс. Възстановяване. Подмладяване.</h1>
   <p>Професионална масажна терапия за вашите нужди.</p>
   <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0Du0osfNq2tRPHewT8yG_zez8kAxYOCwIPCvuIRrIfZ2IirRZnZDanHpAxK_lDf8t5RMa_5T2_" class="btn btn-large">Запишете час</a>
@@ -138,7 +142,21 @@
 
       <a href="#king-massage" class="service-card king-massage">
       <div class="overlay">
-        <h3>Кралси масаж </h3>
+        <h3>Кралски масаж </h3>
+        <p class="meta"></p>
+      </div>
+      </a>
+
+      <a href="#higene-cosmetic-massage" class="service-card higene-cosmetic-massage">
+      <div class="overlay">
+        <h3>Хигиенно-козметичен масаж на лице, шия и деколте </h3>
+        <p class="meta"></p>
+      </div>
+      </a>
+
+      <a href="#manual-anticelulite-massage" class="service-card manual-anticelulite-massage">
+      <div class="overlay">
+        <h3>Мануален антицелулитен масаж + масаж с вендуза </h3>
         <p class="meta"></p>
       </div>
       </a>
@@ -318,6 +336,23 @@
        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0Du0osfNq2tRPHewT8yG_zez8kAxYOCwIPCvuIRrIfZ2IirRZnZDanHpAxK_lDf8t5RMa_5T2_" class="btn btn-large">Запишете час</a>
   </div>
 
+      <div id="higene-cosmetic-massage" class="service-detail">
+    <h3> Хигиенно-козметичен масаж на лице, шия и деколте </h3>
+      <p class="meta"></p>
+      <p> 
+Масаж, насочен към почистване, подхранване и подмладяване на кожата на лицето. Подобрява кръвообращението и лимфния дренаж. Стимулира обновяването на кожните клетки. Повишава тонуса и еластичността на кожата. Резултатите са по-хидратирана и гладка кожа, свеж тен и комфорт, благодарение на използваното от нас био Шипково масло лукс.     </p>
+       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0Du0osfNq2tRPHewT8yG_zez8kAxYOCwIPCvuIRrIfZ2IirRZnZDanHpAxK_lDf8t5RMa_5T2_" class="btn btn-large">Запишете час</a>
+  </div>
+
+
+      <div id="manual-anticelulite-massage" class="service-detail">
+    <h3> Мануален антицелулитен масаж + масаж с вендуза </h3>
+      <p class="meta"></p>
+      <p> 
+Мануалният антицелулитен масаж комбинира дълбоки ритмични техники за разбиване на мастните натрупвания, стимулиране на кръвообращението и лимфния дренаж, което спомага за изглаждане на кожата и подобряване на тонуса. Масажът с вендуза допълва ефекта чрез вакуумно въздействие, което активира тъканите в дълбочина и засилва стягането на кожата.     </p>
+       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0Du0osfNq2tRPHewT8yG_zez8kAxYOCwIPCvuIRrIfZ2IirRZnZDanHpAxK_lDf8t5RMa_5T2_" class="btn btn-large">Запишете час</a>
+  </div>
+
 </section>
 
 <!-- Fixed Side Booking Button -->
@@ -338,8 +373,8 @@
     <div class="footer-section">
       <h3>Последвайте ни</h3>
       <div class="social-links">
-        <!--a href="https://www.facebook.com/joymassages" target="_blank" rel="noopener" class="social-icon" title="Facebook">Facebook</a-->
-        <a href="https://www.instagram.com/joy.massage.studio" target="_blank" rel="noopener" class="social-icon" title="Instagram">Instagram</a>
+        <a href="https://www.facebook.com/joymassages" target="_blank" rel="noopener" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/joy.massage.studio" target="_blank" rel="noopener" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </div>
@@ -351,35 +386,69 @@
 
 <script>
   let lastScrollTop = 0;
+  let lastNavbarToggleScroll = 0;
   const navbar = document.querySelector('.navbar');
+  const SCROLL_THRESHOLD = 15; // Minimum pixels to scroll before toggling navbar
 
   window.addEventListener('scroll', function() {
     if (window.innerWidth > 768) return; // Only on mobile
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop && scrollTop > 50) {
-      // Scrolling down and past 50px
-      navbar.classList.add('navbar--shrunk');
-    } else if (scrollTop < lastScrollTop) {
-      // Scrolling up
-      navbar.classList.remove('navbar--shrunk');
+    let scrollDiff = Math.abs(scrollTop - lastNavbarToggleScroll);
+    
+    // Only toggle if we've scrolled at least SCROLL_THRESHOLD pixels
+    if (scrollDiff >= SCROLL_THRESHOLD) {
+      if (scrollTop > lastScrollTop && scrollTop > 50) {
+        // Scrolling down and past 50px
+        navbar.classList.add('navbar--shrunk');
+        lastNavbarToggleScroll = scrollTop;
+      } else if (scrollTop < lastScrollTop) {
+        // Scrolling up
+        navbar.classList.remove('navbar--shrunk');
+        lastNavbarToggleScroll = scrollTop;
+      }
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
   }, false);
 
   // Service pricing data - single source of truth
   const servicePrices = {
-    'classic-massage': { duration: '50 Минути', price: '40 Euro' },
-    'classic-back': { duration: '25 Минути', price: '25 Euro' },
+    'classic-massage': { duration: '60 Минути', price: '40 Euro' },
+    'classic-back': { duration: '30 Минути', price: '25 Euro' },
     'aroma-therapy': { duration: '60 Минути', price: '45 Euro' },
-    'massage-neck': { duration: '15 Минути', price: '15 Euro' },
+    'massage-neck': { duration: '20 Минути', price: '15 Euro' },
     'anticelulite-massage': { duration: '40 Минути', price: '40 Euro' },
-    'head-massage': { duration: '15 Минути', price: '15 Euro' },
+    'head-massage': { duration: '20 Минути', price: '15 Euro' },
     'back-bio-honey': { duration: '45 Минути', price: '45 Euro' },
     'deep-tissue-sports': { duration: '50 Минути', price: '50 Euro' },
     'feet-detox-bio': { duration: '30 Минути', price: '30 Euro' },
     'back-healing-massage': { duration: '30 Минути', price: '30 Euro' },
     'feet-reflexotherapy': { duration: '30 Минути', price: '20 Euro' },
-    'king-massage': { duration: '70 Минути', price: '55 Euro' }
+    'king-massage': { duration: '70 Минути', price: '55 Euro' },
+    'higene-cosmetic-massage': { duration: '35 Минути', price: '25 Euro' },
+    'manual-anticelulite-massage': { duration: '40 Минути', price: '30 Euro' }
+  };
+
+  // Promotional pricing for February (set discountPercent to 0 to disable)
+  const promotionalPrices = {
+    isActive: true, // Set to false to disable promotional pricing
+    month: -1, // February = 1 (0-indexed), set to -1 to always show
+    discountPercent: 20,
+    prices: {
+      'classic-massage': '30 Euro',
+      'classic-back': '20 Euro',
+      'aroma-therapy': '35 Euro',
+      'massage-neck': '15 Euro',
+      'anticelulite-massage': '35 Euro',
+      'head-massage': '12 Euro',
+      'back-bio-honey': '35 Euro',
+      'deep-tissue-sports': '40 Euro',
+      'feet-detox-bio': '20 Euro',
+      'back-healing-massage': '25 Euro',
+      'feet-reflexotherapy': '15 Euro',
+      'king-massage': '45 Euro',
+      'higene-cosmetic-massage': '20 Euro',
+      'manual-anticelulite-massage': '25 Euro'
+    }
   };
 
   // Booking links - single source of truth
@@ -391,24 +460,47 @@
     // 'king-massage': 'https://calendar.google.com/...',
   };
 
+  // Function to check if promotional pricing should be active
+  function isPromotionalActive() {
+    if (!promotionalPrices.isActive) return false;
+    if (promotionalPrices.month === -1) return true; // Always show
+    const today = new Date();
+    return today.getMonth() === promotionalPrices.month;
+  }
+
   // Function to update pricing in both service cards and details
   function updateServicePricing() {
+    const promoActive = isPromotionalActive();
+    
     Object.keys(servicePrices).forEach(serviceId => {
       const pricing = servicePrices[serviceId];
-      const metaText = `${pricing.duration} · ${pricing.price}`;
+      let metaText = `${pricing.duration} · ${pricing.price}`;
+      
+      // If promotional pricing is active, show old price crossed out and new price
+      if (promoActive && promotionalPrices.prices[serviceId]) {
+        const oldPrice = pricing.price;
+        const newPrice = promotionalPrices.prices[serviceId];
+        metaText = `${pricing.duration} · <span class="old-price">${oldPrice}</span> <span class="new-price">${newPrice}</span>`;
+      }
 
       // Update service card
       const cardMeta = document.querySelector(`.service-card[href="#${serviceId}"] .meta`);
       if (cardMeta) {
-        cardMeta.textContent = metaText;
+        cardMeta.innerHTML = metaText;
       }
 
       // Update service detail
       const detailMeta = document.querySelector(`#${serviceId} .meta`);
       if (detailMeta) {
-        detailMeta.textContent = metaText;
+        detailMeta.innerHTML = metaText;
       }
     });
+
+    // Show/hide promotional banner
+    const promoBanner = document.getElementById('promo-banner');
+    if (promoBanner) {
+      promoBanner.style.display = promoActive ? 'block' : 'none';
+    }
   }
 
   // Function to update booking links
