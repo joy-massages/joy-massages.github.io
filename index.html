@@ -29,7 +29,13 @@
 <header class="navbar">
   <div class="logo">Масажно Студио Пловдив - Joy Massages</div>
 
-  <nav class="nav-center">
+  <button class="hamburger" id="hamburger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-center" id="nav-menu">
     <a href="#about">За мен</a>
     <a href="#services">Услуги</a>
     <a href="#location">Контакт</a>
@@ -48,7 +54,7 @@
     class="hero-logo"
   />
   <div id="promo-banner" class="promo-banner" style="display: none;">
-    <p> Февруари е месецът на специалните предложения- открийте нашите промоции с намаление до -33% </p>
+    <p> Февруари е месецът на специалните предложения- открийте нашите промоции с намаление до <span class="discount-highlight">33%</span> </p>
   </div>
   <h1>Релакс. Възстановяване. Подмладяване.</h1>
   <p>Професионална масажна терапия за вашите нужди.</p>
@@ -385,6 +391,31 @@
 </footer>
 
 <script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.navbar')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+
   let lastScrollTop = 0;
   let lastNavbarToggleScroll = 0;
   const navbar = document.querySelector('.navbar');
