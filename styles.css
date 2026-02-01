@@ -128,7 +128,7 @@ h1,h2,h3,h4,h5,h6{
 
 .navbar {
   display: grid;
-  grid-template-columns: auto 1fr; /* logo | center nav */
+  grid-template-columns: auto 1fr auto; /* logo | center space | nav right */
   align-items: center;
   padding: 1rem 3rem;
   background: #fff;
@@ -155,13 +155,13 @@ h1,h2,h3,h4,h5,h6{
 .navbar nav {
   display: flex;
   gap: 2.5rem; /* space between links */
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .nav-center {
-  justify-self: center; /* center the navigation links */
+  justify-self: end; /* position navigation to the right */
 }
 
 /* Hamburger Menu */
@@ -258,7 +258,7 @@ h1,h2,h3,h4,h5,h6{
 /* Desktop/Tablet - standard navbar styles */
 @media (min-width: 769px) {
   .navbar {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
   }
 }
 
