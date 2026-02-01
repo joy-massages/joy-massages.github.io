@@ -595,6 +595,72 @@ h1,h2,h3,h4,h5,h6{
   }
 }
 
+/* Service description - show limited lines on mobile */
+.service-description {
+  transition: all 0.3s ease;
+}
+
+.service-description.expanded {
+  display: block;
+  overflow: visible;
+}
+
+/* Read more button */
+.read-more-btn {
+  display: none;
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.read-more-btn:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.read-more-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .service-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .service-description.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+  }
+
+  .read-more-btn[aria-expanded="true"] {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+  }
+
+  .read-more-btn[aria-expanded="true"]::after {
+    content: " \2191";
+  }
+
+  .read-more-btn[aria-expanded="false"]::after {
+    content: "";
+  }
+}
+
 
 /* =========================
    About Section
